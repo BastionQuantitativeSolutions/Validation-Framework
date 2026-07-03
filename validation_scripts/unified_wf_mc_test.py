@@ -47,7 +47,7 @@ log = logging.getLogger("WF_MC_v3")
 
 # ── Root path setup ───────────────────────────────────────────────────────────
 SCRIPT_DIR = Path(__file__).resolve()
-ROOT = SCRIPT_DIR.parents[2]          # C:\Users\jack\Cavalier
+ROOT = SCRIPT_DIR.parents[2]          # .\sample_project
 DATA_RAW = ROOT / "DATA_MODELS" / "data_raw"
 _M30_CACHE: Dict[str, pd.DataFrame] = {}  # pair → full M30 df, loaded once
 sys.path.insert(0, str(ROOT))

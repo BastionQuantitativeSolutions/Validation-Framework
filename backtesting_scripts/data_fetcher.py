@@ -60,7 +60,7 @@ class TickVaultFetcher:
     """
 
     def __init__(self, base_directory: Optional[Path] = None, tickvault_available: bool = True):
-        self.base_directory = base_directory or Path("C:/Users/jack/Cavalier/DATA_MODELS/tick_data")
+        self.base_directory = base_directory or Path("./sample_project/DATA_MODELS/tick_data")
         self.tickvault_available = tickvault_available
         self._ensure_directory()
 
@@ -267,7 +267,7 @@ class TickVaultFetcher:
         """
         Load OHLCV bars from existing parquet data or aggregate from ticks.
         """
-        parquet_dir = Path("C:/Users/jack/Cavalier/DATA_MODELS/data_parquet")
+        parquet_dir = Path("./sample_project/DATA_MODELS/data_parquet")
         tf_map = {"M1": "M1", "M5": "M5", "M15": "M15", "M30": "M30", "H1": "H1", "H4": "H4", "D1": "D1"}
         tf_file = tf_map.get(timeframe.upper(), timeframe.upper())
 

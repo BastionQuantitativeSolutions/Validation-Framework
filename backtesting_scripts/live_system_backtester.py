@@ -61,15 +61,15 @@ except ImportError as e:
     SL_MULTIPLIERS = {"TRENDING": 1.5, "RANGING": 1.0, "VOLATILE": 1.2, "DEFAULT": 1.5}
     TP_MULTIPLIERS = {"TRENDING": 3.0, "RANGING": 2.0, "VOLATILE": 2.5, "DEFAULT": 2.5}
     ATR_PERIOD = 14
-    BASE_RISK_PER_TRADE = 0.0075
+    BASE_RISK_PER_TRADE = 0.0100  # public demo default; tune on your own validation set
     MIN_CONFIRMING_FACTORS = 1
     MIN_CONFIDENCE_GOVERNANCE = 0.70
     MIN_MOMENTUM = 0.25
     MAX_DAILY_TRADES_PER_SYMBOL = 8
     SESSION_TRADE_CAP = 20
 
-PARQUET_DIR = Path("C:/Users/jack/Cavalier/DATA_MODELS/data_parquet")
-MODELS_DIR = Path("C:/Users/jack/Cavalier/DATA_MODELS/models_live")
+PARQUET_DIR = Path("./sample_project/DATA_MODELS/data_parquet")
+MODELS_DIR = Path("./sample_project/DATA_MODELS/models_live")
 ALL_PAIRS = [
     "EURUSD",
     "GBPUSD",
@@ -376,7 +376,7 @@ if __name__ == "__main__":
 
     if targets_met:
         logger.info("\n*** TARGETS MET! ***")
-        output_file = Path("C:/Users/jack/Cavalier/CORE_MODULES/config/live_system_backtest_results.json")
+        output_file = Path("./sample_project/CORE_MODULES/config/live_system_backtest_results.json")
         with open(output_file, "w") as f:
             json.dump(
                 {"timestamp": datetime.now().isoformat(), "results": results, "targets_met": True, "live_modules_available": LIVE_MODULES_AVAILABLE},

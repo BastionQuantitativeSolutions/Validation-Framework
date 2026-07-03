@@ -70,7 +70,7 @@ def cmd_backtest(args):
 
     TickVaultFetcher()
 
-    parquet_dir = Path("C:/Users/jack/Cavalier/DATA_MODELS/data_parquet")
+    parquet_dir = Path("./sample_project/DATA_MODELS/data_parquet")
     for symbol in symbols:
         parquet_files = list(parquet_dir.glob(f"{symbol.upper()}_*.parquet"))
         if len(parquet_files) == 0:

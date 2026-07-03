@@ -37,7 +37,7 @@ def load_models_cavalier(pair: str, tf: str):
     Load models using Cavalier's actual structure.
     Tries nested structure first (pair_tf/core), then flat files.
     """
-    models_live = Path("C:/Users/jack/Cavalier/DATA_MODELS/models_live")
+    models_live = Path("./sample_project/DATA_MODELS/models_live")
 
     nested_path = models_live / f"{pair}_{tf}" / "core"
 
@@ -223,7 +223,7 @@ def load_pair_data(
     pair: str, tf: str, start_date: Optional[str] = None, end_date: Optional[str] = None, sample_pct: Optional[float] = None
 ) -> pd.DataFrame:
     """Load parquet data with optional filtering"""
-    path = Path(f"C:/Users/jack/Cavalier/DATA_MODELS/data_parquet/{pair}_{tf}.parquet")
+    path = Path(f"./sample_project/DATA_MODELS/data_parquet/{pair}_{tf}.parquet")
     if not path.exists():
         return pd.DataFrame()
 

@@ -5,7 +5,7 @@ Validate v2 models trained on all bars
 
 import sys
 
-sys.path.insert(0, "C:/Users/jack/Cavalier")
+sys.path.insert(0, "./sample_project")
 import warnings
 
 warnings.filterwarnings("ignore")
@@ -17,8 +17,8 @@ import lightgbm as lgb
 import xgboost as xgb
 from catboost import CatBoostClassifier
 
-OUTPUT_DIR = Path("C:/Users/jack/Cavalier/DATA_MODELS/models_live_v2")
-DATA_DIR = Path("C:/Users/jack/Cavalier/DATA_MODELS/data_parquet")
+OUTPUT_DIR = Path("./sample_project/DATA_MODELS/models_live_v2")
+DATA_DIR = Path("./sample_project/DATA_MODELS/data_parquet")
 PAIRS = ["EURUSD", "GBPUSD", "USDJPY", "AUDUSD", "USDCAD", "XAUUSD"]
 TP_PIPS = {
     "EURUSD": 5,

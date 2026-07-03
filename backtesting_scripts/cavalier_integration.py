@@ -277,7 +277,7 @@ class CavalierBacktester:
         self.executor = BacktestOrderExecutor(initial_balance=initial_balance, risk_per_trade=risk_per_trade, max_positions=max_positions)
         self.signal_generator = CavalierSignalGenerator()
 
-        self.results_dir = Path("C:/Users/jack/Cavalier/CORE_MODULES/results/backtest")
+        self.results_dir = Path("./sample_project/CORE_MODULES/results/backtest")
         self.results_dir.mkdir(parents=True, exist_ok=True)
 
     def run(

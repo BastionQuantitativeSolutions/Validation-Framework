@@ -25,7 +25,7 @@ from CORE_MODULES.backtesting.optimized_backtester import OptimizedBacktester
 logging.basicConfig(level=logging.INFO, format="%(asctime)s | %(levelname)s | %(message)s")
 logger = logging.getLogger(__name__)
 
-PARQUET_DIR = Path("C:/Users/jack/Cavalier/DATA_MODELS/data_parquet")
+PARQUET_DIR = Path("./sample_project/DATA_MODELS/data_parquet")
 
 FOREX_PAIRS = ["EURUSD", "GBPUSD", "USDJPY", "USDCHF", "USDCAD", "AUDUSD", "NZDUSD", "GBPCHF"]
 
@@ -172,7 +172,7 @@ def print_results(results: dict, args):
         print(f"  {symbol}: {count}")
     print("=" * 70)
 
-    html_path = Path("C:/Users/jack/Cavalier/CORE_MODULES/results/backtest") / f"{args.output or 'accurate_backtest'}.html"
+    html_path = Path("./sample_project/CORE_MODULES/results/backtest") / f"{args.output or 'accurate_backtest'}.html"
     print(f"\nHTML Report: {html_path}")
 
 

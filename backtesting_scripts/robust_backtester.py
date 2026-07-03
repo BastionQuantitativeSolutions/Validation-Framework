@@ -493,7 +493,7 @@ if __name__ == "__main__":
     logging.basicConfig(level=logging.INFO)
 
     # Load data
-    data_dir = Path("C:/Users/jack/Cavalier/DATA_MODELS/data_parquet")
+    data_dir = Path("./sample_project/DATA_MODELS/data_parquet")
 
     data = {}
     for symbol in ["EURUSD", "GBPUSD", "USDJPY", "USDCAD", "AUDUSD"]:
@@ -529,7 +529,7 @@ if __name__ == "__main__":
     results = optimize_parameters(data, param_grid, n_folds=4)
 
     # Save results
-    output_path = Path("C:/Users/jack/Cavalier/CORE_MODULES/results/backtest/optimization_results.json")
+    output_path = Path("./sample_project/CORE_MODULES/results/backtest/optimization_results.json")
     output_path.parent.mkdir(parents=True, exist_ok=True)
 
     # Convert to serializable format

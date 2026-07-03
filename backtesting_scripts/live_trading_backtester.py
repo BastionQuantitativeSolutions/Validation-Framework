@@ -45,14 +45,14 @@ try:
     )
     from CORE_MODULES.core.unified_exits import calculate_sl_tp
 except ImportError:
-    BASE_BUY_THRESHOLD = 0.53
-    BASE_SELL_THRESHOLD = 0.47
+    BASE_BUY_THRESHOLD = 0.55  # public demo default; tune on your own validation set
+    BASE_SELL_THRESHOLD = 0.45  # public demo default; tune on your own validation set
     W_ML = 0.7
     W_SMC = 0.3
     SL_MULTIPLIERS = {"TRENDING": 1.5, "RANGING": 1.0, "VOLATILE": 1.2, "DEFAULT": 1.5}
     TP_MULTIPLIERS = {"TRENDING": 3.0, "RANGING": 2.0, "VOLATILE": 2.5, "DEFAULT": 2.5}
     ATR_PERIOD = 14
-    BASE_RISK_PER_TRADE = 0.0075
+    BASE_RISK_PER_TRADE = 0.0100  # public demo default; tune on your own validation set
     PAIRS = ["EURUSD", "GBPUSD", "USDJPY", "AUDUSD", "USDCAD", "USDCHF", "NZDUSD", "GBPCHF"]
 
 logger = logging.getLogger(__name__)
@@ -193,7 +193,7 @@ class LiveTradingBacktester:
         self.min_confidence = min_confidence
         self.max_positions = max_positions
 
-        self.results_dir = Path("C:/Users/jack/Cavalier/CORE_MODULES/results/backtest")
+        self.results_dir = Path("./sample_project/CORE_MODULES/results/backtest")
         self.results_dir.mkdir(parents=True, exist_ok=True)
 
     def reset_state(self):

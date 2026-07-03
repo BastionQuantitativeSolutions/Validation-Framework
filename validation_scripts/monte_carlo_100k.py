@@ -1,7 +1,7 @@
 import sys
 # Author: JG
 
-sys.path.insert(0, "C:/Users/jack/Cavalier")
+sys.path.insert(0, "./sample_project")
 import pandas as pd
 import numpy as np
 from CORE_MODULES.core.models.loader import load_models_for_pair_tf
@@ -16,7 +16,7 @@ all_wr_is = []
 all_wr_oos = []
 
 for pair in pairs:
-    df = pd.read_parquet(f"C:/Users/jack/Cavalier/DATA_MODELS/data_parquet/{pair}_M1.parquet")
+    df = pd.read_parquet(f"./sample_project/DATA_MODELS/data_parquet/{pair}_M1.parquet")
     df.index = pd.to_datetime(df.index)
 
     models, scaler, features = load_models_for_pair_tf(pair, "M1")

@@ -18,9 +18,9 @@ from train_ml_final import create_target, get_params, force_balance
 from sklearn.model_selection import TimeSeriesSplit
 from sklearn.metrics import accuracy_score, roc_auc_score
 
-PARQUET_DIR = Path("C:/Users/jack/Cavalier/DATA_MODELS/data_parquet")
-MODELS_DIR = Path("C:/Users/jack/Cavalier/DATA_MODELS/models_live")
-RESULTS_DIR = Path("C:/Users/jack/Cavalier/CORE_MODULES/validation/results")
+PARQUET_DIR = Path("./sample_project/DATA_MODELS/data_parquet")
+MODELS_DIR = Path("./sample_project/DATA_MODELS/models_live")
+RESULTS_DIR = Path("./sample_project/CORE_MODULES/validation/results")
 RESULTS_DIR.mkdir(exist_ok=True)
 
 PAIR = "EURUSD"

@@ -9,7 +9,7 @@ PAIRS = ["XAUUSD", "EURUSD", "GBPUSD", "USDJPY", "AUDUSD", "USDCAD"]
 TF = mt5.TIMEFRAME_M5
 TF_NAME = "M5_1Y"
 
-OUTPUT_DIR = Path("c:/Users/jack/Cavalier/DATA_MODELS/data_1y_backtest")
+OUTPUT_DIR = Path("./sample_project/DATA_MODELS/data_1y_backtest")
 OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
 
 

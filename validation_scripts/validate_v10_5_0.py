@@ -87,8 +87,8 @@ BASELINE = {
 # ─── v10.5.0 Parameters under test ───────────────────────────────────────────
 V10_PARAMS = {
     "version":        "v10.5.0",
-    "buy_threshold":  0.53,
-    "sell_threshold": 0.47,
+    "buy_threshold": 0.55,
+    "sell_threshold": 0.45,
     "W_ML":           0.55,
     "W_SMC":          0.45,
     "base_risk":      0.0075,

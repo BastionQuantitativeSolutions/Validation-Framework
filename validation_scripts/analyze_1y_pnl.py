@@ -7,8 +7,8 @@ import warnings
 
 warnings.filterwarnings("ignore")
 
-csv_path = "C:/Users/jack/Cavalier/CORE_MODULES/results/CavalierTrades_1Y.csv"
-data_dir = Path("C:/Users/jack/Cavalier/DATA_MODELS/data_1y_backtest")
+csv_path = "./sample_project/CORE_MODULES/results/CavalierTrades_1Y.csv"
+data_dir = Path("./sample_project/DATA_MODELS/data_1y_backtest")
 
 print("Loading 75,000 trades from CSV...")
 trades = pd.read_csv(csv_path, sep=";")
@@ -134,7 +134,7 @@ plt.xlabel("Date", fontsize=12)
 plt.grid(True, alpha=0.2, color="gray")
 plt.fill_between(res_df["Time"], res_df["Cumulative_Pips"], 0, alpha=0.1, color="#00ff88")
 
-out_path = "C:/Users/jack/Cavalier/CORE_MODULES/results/1Y_Equity_Curve.png"
+out_path = "./sample_project/CORE_MODULES/results/1Y_Equity_Curve.png"
 plt.tight_layout()
 plt.savefig(out_path, dpi=150)
 print(f"-> Equity Curve Chart saved to: {out_path}")

@@ -75,7 +75,7 @@ def main():
     print("   Out-of-Sample Walk-Forward Validation of Sizing Sigmoid    ")
     print("==============================================================")
     
-    log_path = Path("C:/Users/jack/Cavalier/CORE_MODULES/results/trade_results_log.json")
+    log_path = Path("./sample_project/CORE_MODULES/results/trade_results_log.json")
     if not log_path.exists():
         print(f"[FAIL] trade_results_log.json not found at {log_path}")
         return
@@ -243,7 +243,7 @@ def main():
         }
     }
     
-    out_path = Path("C:/Users/jack/Cavalier/CORE_MODULES/results/walk_forward_sizing_validation.json")
+    out_path = Path("./sample_project/CORE_MODULES/results/walk_forward_sizing_validation.json")
     with open(out_path, "w") as f:
         json.dump(output, f, indent=2)
     print(f"\n[OK] Sizing validation complete. Results saved -> {out_path}")

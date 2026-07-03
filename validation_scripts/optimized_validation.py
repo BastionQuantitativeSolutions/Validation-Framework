@@ -73,7 +73,7 @@ class FeatureCache:
 
 
 def load_pair_data(pair: str, tf: str, n_samples: int = 200) -> pd.DataFrame:
-    path = Path(f"C:/Users/jack/Cavalier/DATA_MODELS/data_parquet/{pair}_{tf}.parquet")
+    path = Path(f"./sample_project/DATA_MODELS/data_parquet/{pair}_{tf}.parquet")
     if not path.exists():
         logger.error(f"[DATA] File not found: {path}")
         return pd.DataFrame()
@@ -90,7 +90,7 @@ def get_tiered_predictions_batch(df: pd.DataFrame, pair: str, tf: str) -> np.nda
     from CORE_MODULES.core.models.loader import load_tiered_models
     from DATA_MODELS.feature_bridge import compute_features_for_prediction
 
-    models_live = Path("C:/Users/jack/Cavalier/DATA_MODELS/models_live")
+    models_live = Path("./sample_project/DATA_MODELS/models_live")
     tiered_pack, scalers_dict, features_dict = load_tiered_models(pair, tf, root=models_live)
 
     if not tiered_pack:

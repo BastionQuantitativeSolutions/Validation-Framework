@@ -46,7 +46,7 @@ class ValidationResult:
 
 def load_all_pairs() -> List[str]:
     """Get all available pairs from data directory"""
-    data_dir = Path("C:/Users/jack/Cavalier/DATA_MODELS/data_parquet")
+    data_dir = Path("./sample_project/DATA_MODELS/data_parquet")
     pairs = set()
     for f in data_dir.glob("*_M15.parquet"):
         pair = f.name.replace("_M15.parquet", "")
@@ -323,7 +323,7 @@ def main():
     for pair in pairs_to_test:
         print(f"Testing {pair}...", end=" ", flush=True)
 
-        df = pd.read_parquet(f"C:/Users/jack/Cavalier/DATA_MODELS/data_parquet/{pair}_M15.parquet")
+        df = pd.read_parquet(f"./sample_project/DATA_MODELS/data_parquet/{pair}_M15.parquet")
         df.index = pd.to_datetime(df.index)
 
         tiered_pack, scalers_dict, features_dict = load_tiered_models(pair, "M15")
@@ -356,7 +356,7 @@ def main():
     for pair in pairs_to_test:
         print(f"Monte Carlo {pair}...", end=" ", flush=True)
 
-        df = pd.read_parquet(f"C:/Users/jack/Cavalier/DATA_MODELS/data_parquet/{pair}_M15.parquet")
+        df = pd.read_parquet(f"./sample_project/DATA_MODELS/data_parquet/{pair}_M15.parquet")
         df.index = pd.to_datetime(df.index)
 
         tiered_pack, scalers_dict, features_dict = load_tiered_models(pair, "M15")

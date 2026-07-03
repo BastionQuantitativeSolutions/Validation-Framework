@@ -1,4 +1,4 @@
-'# Backtest engine for Validation-Framework.
+# Backtest engine for Validation-Framework.
 
 import pandas as pd
 import numpy as np
@@ -78,4 +78,3 @@ class BacktestEngine:
             "max_drawdown": max_drawdown,
             "final_equity": self.equity_curve[-1],
         }
-'

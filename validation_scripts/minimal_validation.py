@@ -29,7 +29,7 @@ _model_cache = {}
 
 
 def load_pair_sample(pair: str, tf: str, n_samples: int = 2000) -> pd.DataFrame:
-    path = Path(f"C:/Users/jack/Cavalier/DATA_MODELS/data_parquet/{pair}_{tf}.parquet")
+    path = Path(f"./sample_project/DATA_MODELS/data_parquet/{pair}_{tf}.parquet")
     if not path.exists():
         return pd.DataFrame()
 
@@ -49,7 +49,7 @@ def get_tiered_predictions(df: pd.DataFrame, pair: str, tf: str) -> np.ndarray:
     if cache_key in _model_cache:
         tiered_pack = _model_cache[cache_key]
     else:
-        models_live = Path("C:/Users/jack/Cavalier/DATA_MODELS/models_live")
+        models_live = Path("./sample_project/DATA_MODELS/models_live")
         tiered_pack, scalers_dict, features_dict = load_tiered_models(pair, tf, root=models_live)
         _model_cache[cache_key] = tiered_pack
 

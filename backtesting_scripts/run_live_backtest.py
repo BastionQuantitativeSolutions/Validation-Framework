@@ -27,7 +27,7 @@ from CORE_MODULES.backtesting.live_trading_backtester import LiveTradingBacktest
 logging.basicConfig(level=logging.INFO, format="%(asctime)s | %(levelname)s | %(message)s")
 logger = logging.getLogger(__name__)
 
-PARQUET_DIR = Path("C:/Users/jack/Cavalier/DATA_MODELS/data_parquet")
+PARQUET_DIR = Path("./sample_project/DATA_MODELS/data_parquet")
 
 FOREX_PAIRS = ["EURUSD", "GBPUSD", "USDJPY", "USDCHF", "USDCAD", "AUDUSD", "NZDUSD", "GBPCHF"]
 
@@ -180,7 +180,7 @@ def print_results(results: dict):
         print(f"  {symbol}: {count}")
     print("=" * 70)
 
-    html_path = Path("C:/Users/jack/Cavalier/CORE_MODULES/results/backtest") / f"{results.get('output_name', 'live_sim')}.html"
+    html_path = Path("./sample_project/CORE_MODULES/results/backtest") / f"{results.get('output_name', 'live_sim')}.html"
     print(f"\nHTML Report: {html_path.parent / (html_path.name + '.html')}")
 
 

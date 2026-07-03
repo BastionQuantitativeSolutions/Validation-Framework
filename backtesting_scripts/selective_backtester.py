@@ -20,7 +20,7 @@ sys.path.insert(0, str(Path(__file__).parent.parent.parent))
 logging.basicConfig(level=logging.INFO, format="%(asctime)s | %(levelname)s | %(message)s")
 logger = logging.getLogger(__name__)
 
-PARQUET_DIR = Path("C:/Users/jack/Cavalier/DATA_MODELS/data_parquet")
+PARQUET_DIR = Path("./sample_project/DATA_MODELS/data_parquet")
 ALL_PAIRS = [
     "EURUSD",
     "GBPUSD",
@@ -438,7 +438,7 @@ if __name__ == "__main__":
         logger.info(f"Total PnL: ${results['total_pnl']:.2f} > ${MIN_PROFIT:.2f}")
 
         # Save results
-        output_file = Path("C:/Users/jack/Cavalier/CORE_MODULES/config/selective_backtest_results.json")
+        output_file = Path("./sample_project/CORE_MODULES/config/selective_backtest_results.json")
         with open(output_file, "w") as f:
             json.dump(
                 {

@@ -43,8 +43,8 @@ try:
     from CORE_MODULES.core.unified_governance import governance_check, is_holiday_blocked
     from CORE_MODULES.core.unified_exits import calculate_sl_tp, calculate_atr_from_df
 except ImportError:
-    BASE_BUY_THRESHOLD = 0.53
-    BASE_SELL_THRESHOLD = 0.47
+    BASE_BUY_THRESHOLD = 0.55  # public demo default; tune on your own validation set
+    BASE_SELL_THRESHOLD = 0.45  # public demo default; tune on your own validation set
     W_ML = 0.7
     W_SMC = 0.3
     SL_MULTIPLIERS = {"TRENDING": 1.5, "RANGING": 1.0, "VOLATILE": 1.2, "DEFAULT": 1.5}
@@ -56,7 +56,7 @@ except ImportError:
     MAX_DAILY_TRADES_PER_SYMBOL = 8
     SESSION_TRADE_CAP = 30
     LOSS_STREAK_LIMIT = 3
-    BASE_RISK_PER_TRADE = 0.0075
+    BASE_RISK_PER_TRADE = 0.0100  # public demo default; tune on your own validation set
 
     def governance_check(signal, pair, context, dt=None):
         return True, "PASSED", 1.0
@@ -154,7 +154,7 @@ class OptimizedBacktester:
         self.initial_balance = initial_balance
         self.risk_per_trade = risk_per_trade
         self.max_positions = max_positions
-        self.results_dir = Path("C:/Users/jack/Cavalier/CORE_MODULES/results/backtest")
+        self.results_dir = Path("./sample_project/CORE_MODULES/results/backtest")
         self.results_dir.mkdir(parents=True, exist_ok=True)
 
     def reset_state(self):

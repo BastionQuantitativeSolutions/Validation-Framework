@@ -67,7 +67,7 @@ _feature_cache = {}
 
 
 def load_pair_data(pair: str, tf: str, sample_pct: float = 20) -> pd.DataFrame:
-    path = Path(f"C:/Users/jack/Cavalier/DATA_MODELS/data_parquet/{pair}_{tf}.parquet")
+    path = Path(f"./sample_project/DATA_MODELS/data_parquet/{pair}_{tf}.parquet")
     if not path.exists():
         return pd.DataFrame()
 
@@ -91,7 +91,7 @@ def load_tiered_models_fast(pair: str, tf: str):
     from CORE_MODULES.core.models.ensemble import get_tiered_prediction
     from DATA_MODELS.feature_bridge import compute_features_for_prediction
 
-    models_live = Path("C:/Users/jack/Cavalier/DATA_MODELS/models_live")
+    models_live = Path("./sample_project/DATA_MODELS/models_live")
     tiered_pack, scalers_dict, features_dict = load_tiered_models(pair, tf, root=models_live)
 
     result = {

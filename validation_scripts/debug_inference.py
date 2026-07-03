@@ -2,7 +2,7 @@ import sys
 import numpy as np
 from pathlib import Path
 
-sys.path.insert(0, str(Path(r"c:\Users\jack\Cavalier")))
+sys.path.insert(0, str(Path(r".\sample_project")))
 
 import pandas as pd
 from CORE_MODULES.core.models.loader import load_tiered_models
@@ -11,7 +11,7 @@ from CORE_MODULES.core.models.ensemble import get_tiered_prediction
 
 def test_inference(pair="EURUSD", tf="M15"):
     print(f"Testing {pair}_{tf} inference pipeline with get_tiered_prediction...", flush=True)
-    df = pd.read_parquet(rf"C:\Users\jack\Cavalier\DATA_MODELS\data_parquet\{pair}_{tf}.parquet")
+    df = pd.read_parquet(rf".\sample_project\DATA_MODELS\data_parquet\{pair}_{tf}.parquet")
     print(f"Loaded {len(df)} rows from parquet.", flush=True)
 
     print("Loading tiered models...")

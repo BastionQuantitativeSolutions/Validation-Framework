@@ -22,7 +22,7 @@ from CORE_MODULES.backtesting.live_trading_backtester import LiveTradingBacktest
 logging.basicConfig(level=logging.INFO, format="%(asctime)s | %(levelname)s | %(message)s")
 logger = logging.getLogger(__name__)
 
-PARQUET_DIR = Path("C:/Users/jack/Cavalier/DATA_MODELS/data_parquet")
+PARQUET_DIR = Path("./sample_project/DATA_MODELS/data_parquet")
 ALL_PAIRS = [
     "EURUSD",
     "GBPUSD",
@@ -253,7 +253,7 @@ def optimize_parameters():
 
 def save_optimized_parameters(params, results, metrics):
     """Save optimized parameters to config file."""
-    output_file = Path("C:/Users/jack/Cavalier/CORE_MODULES/config/optimized_backtest_params.json")
+    output_file = Path("./sample_project/CORE_MODULES/config/optimized_backtest_params.json")
 
     # Convert results to serializable format
     if results and "stats" in results:
