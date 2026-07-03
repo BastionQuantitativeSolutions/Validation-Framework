@@ -1,0 +1,35 @@
+{
+  "calibration_date": "2026-03-09T19:52:50.463815",
+  "global_rsi_threshold": 15,
+  "per_pair_settings": {
+    "EURUSD_M5": 16,
+    "EURUSD_M15": 15,
+    "EURUSD_M30": 15,
+    "EURUSD_H1": 13,
+    "GBPUSD_M5": 16,
+    "GBPUSD_M15": 15,
+    "GBPUSD_M30": 15,
+    "GBPUSD_H1": 13,
+    "USDJPY_M5": 15,
+    "USDJPY_M15": 14,
+    "USDJPY_M30": 14,
+    "USDJPY_H1": 15,
+    "AUDUSD_M5": 16,
+    "AUDUSD_M15": 16,
+    "AUDUSD_M30": 16,
+    "AUDUSD_H1": 15,
+    "USDCAD_M5": 17,
+    "USDCAD_M15": 16,
+    "USDCAD_M30": 16,
+    "USDCAD_H1": 16,
+    "XAUUSD_M5": 15,
+    "XAUUSD_M15": 15,
+    "XAUUSD_M30": 14,
+    "XAUUSD_H1": 16
+  },
+  "methodology": {
+    "live_regime": "ADX > 25",
+    "optimization_target": "Minimize false positives (3x penalty)",
+    "data_period": "Full available history"
+  }
+}

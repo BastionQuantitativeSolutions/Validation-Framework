@@ -1,0 +1,389 @@
+{
+  "schema_version": 4,
+  "policy_name": "regime_strategy_eligibility_matrix",
+  "runtime_enforced": true,
+  "purpose": "Governance reference for which strategies are eligible by regime, including Tier-2 incubation cohorts.",
+  "last_updated_utc": "2026-04-25T22:30:00Z",
+  "_change_v4": "max_fused raised 0.98→1.0 across BREAKOUT/VOLATILITY_EXPANSION/TRENDING_STRONG/RANGING_LOW_VOL/RANGING_HIGH_NOISE. entry_governor uses strict > comparison so 0.98 was hard-blocking all fused=1.00 signals (ML ensemble's highest-conviction output). Run H achieved 53.1% WR despite this — removing cap will allow best signals through.",
+  "global_constraints": {
+    "non_invasive": true,
+    "tier_2_single_meaningful_strategy_rule": true,
+    "regime_misclassification_expected": true,
+    "prefer_silence_over_forced_participation": true,
+    "gold_default_excluded_from_universe": false
+  },
+  "instrument_scopes": {
+    "XAUUSD": {
+      "domain": "METALS_MACRO",
+      "tier_1_eligible": true,
+      "tier_2_only": false,
+      "default_universe_inclusion": true,
+      "explicit_strategy_scope_required": false,
+      "eligible_strategies": [
+        "CAST",
+        "MPRD",
+        "VRPH"
+      ],
+      "notes": "Gold is treated as macro metals instrument; inactivity is correct by default."
+    },
+    "USOIL": {
+      "domain": "ENERGY_MACRO",
+      "tier_1_eligible": true,
+      "tier_2_only": false,
+      "default_universe_inclusion": true,
+      "explicit_strategy_scope_required": false,
+      "eligible_strategies": [
+        "CAST",
+        "MPRD",
+        "TEF"
+      ],
+      "notes": "Energy trends hard; exclude mean-reversion strategies (VRPH, SMRF)."
+    },
+    "UKOIL": {
+      "domain": "ENERGY_MACRO",
+      "tier_1_eligible": true,
+      "tier_2_only": false,
+      "default_universe_inclusion": true,
+      "explicit_strategy_scope_required": false,
+      "eligible_strategies": [
+        "CAST",
+        "MPRD",
+        "TEF"
+      ],
+      "notes": "Energy trends hard; exclude mean-reversion strategies (VRPH, SMRF)."
+    },
+    "HEATOIL": {
+      "domain": "ENERGY_MACRO",
+      "tier_1_eligible": true,
+      "tier_2_only": false,
+      "default_universe_inclusion": true,
+      "explicit_strategy_scope_required": false,
+      "eligible_strategies": [
+        "CAST",
+        "MPRD",
+        "TEF"
+      ],
+      "notes": "Illiquid energy instrument; trend-following only, highest confidence bar."
+    },
+    "JP225": {
+      "domain": "EQUITY_INDEX",
+      "tier_1_eligible": true,
+      "tier_2_only": false,
+      "default_universe_inclusion": true,
+      "explicit_strategy_scope_required": false,
+      "eligible_strategies": [
+        "CAST",
+        "MPRD",
+        "TEF",
+        "FBMR"
+      ],
+      "notes": "Nikkei 225; session open fakeouts make FBMR valuable alongside trend strategies."
+    },
+    "US100": {
+      "domain": "EQUITY_INDEX",
+      "tier_1_eligible": true,
+      "tier_2_only": false,
+      "default_universe_inclusion": true,
+      "explicit_strategy_scope_required": false,
+      "eligible_strategies": [
+        "CAST",
+        "MPRD",
+        "TEF",
+        "FBMR"
+      ],
+      "notes": "NASDAQ 100; NY session open fakeouts make FBMR valuable alongside trend strategies."
+    },
+    "HK50": {
+      "domain": "EQUITY_INDEX",
+      "tier_1_eligible": true,
+      "tier_2_only": false,
+      "default_universe_inclusion": true,
+      "explicit_strategy_scope_required": false,
+      "eligible_strategies": [
+        "CAST",
+        "MPRD",
+        "TEF",
+        "FBMR"
+      ],
+      "notes": "Hang Seng; low liquidity, conservative participation only."
+    },
+    "UK100": {
+      "domain": "EQUITY_INDEX",
+      "tier_1_eligible": true,
+      "tier_2_only": false,
+      "default_universe_inclusion": true,
+      "explicit_strategy_scope_required": false,
+      "eligible_strategies": [
+        "CAST",
+        "MPRD",
+        "TEF",
+        "FBMR"
+      ],
+      "notes": "FTSE 100; London open fakeouts make FBMR valuable alongside trend strategies."
+    },
+    "XAGUSD": {
+      "domain": "METALS_MACRO",
+      "tier_1_eligible": true,
+      "tier_2_only": false,
+      "default_universe_inclusion": true,
+      "explicit_strategy_scope_required": false,
+      "eligible_strategies": [
+        "CAST",
+        "MPRD",
+        "TEF",
+        "VRPH",
+        "BRC",
+        "VCE"
+      ],
+      "notes": "Silver; correlated with XAUUSD. Added BRC/VCE for BREAKOUT regime coverage. VRPH eligible unlike oil due to mean-reverting macro spikes."
+    },
+    "BTCUSD": {
+      "domain": "CRYPTO_MACRO",
+      "tier_1_eligible": true,
+      "tier_2_only": false,
+      "default_universe_inclusion": true,
+      "explicit_strategy_scope_required": false,
+      "eligible_strategies": [
+        "CAST",
+        "MPRD",
+        "TEF",
+        "BRC",
+        "VCE"
+      ],
+      "notes": "Bitcoin; high-volatility crypto trending instrument. Exclude mean-reversion strategies (VRPH, SMRF). ML_ENSEMBLE primary signal source."
+    },
+    "ETHUSD": {
+      "domain": "CRYPTO_MACRO",
+      "tier_1_eligible": true,
+      "tier_2_only": false,
+      "default_universe_inclusion": true,
+      "explicit_strategy_scope_required": false,
+      "eligible_strategies": [
+        "CAST",
+        "MPRD",
+        "TEF",
+        "BRC",
+        "VCE"
+      ],
+      "notes": "Ethereum; correlated with BTCUSD. High-volatility crypto trending instrument. Exclude mean-reversion strategies (VRPH, SMRF). ML_ENSEMBLE primary signal source."
+    }
+  },
+  "regimes": {
+    "BREAKOUT": {
+      "tier_1_primary": [
+        "BRC",
+        "VCE"
+      ],
+      "tier_1_secondary": [
+        "CAST",
+        "MPRD"
+      ],
+      "tier_2_eligible": [
+        "TEF",
+        "ML_ENSEMBLE"
+      ],
+      "notes": "Breakout continuation and volatility expansion strategies. TEF for late-cycle exhaustion.",
+      "max_fused": 1.0,
+      "velocity_min": 0.4
+    },
+    "VOLATILITY_EXPANSION": {
+      "tier_1_primary": [
+        "SMRF",
+        "BRC"
+      ],
+      "tier_1_secondary": [
+        "STD_DISABLED",
+        "VCE",
+        "TEF"
+      ],
+      "tier_2_eligible": [
+        "VRPH",
+        "ML_ENSEMBLE"
+      ],
+      "notes": "Prefer expansion/continuation engines; TEF added for trend-exhaustion fade trades in volatile breakouts.",
+      "max_fused": 1.0,
+      "velocity_min": 0.5
+    },
+    "POST_EVENT_NORMALIZATION": {
+      "tier_1_primary": [
+        "SMRF",
+        "CPDR"
+      ],
+      "tier_1_secondary": [
+        "MPRD",
+        "FBMR"
+      ],
+      "tier_2_eligible": [
+        "VRPH",
+        "LIA",
+        "ML_ENSEMBLE"
+      ],
+      "notes": "Normalization phase supports non-directional vol and micro-liquidity tactics."
+    },
+    "TRENDING_STRONG": {
+      "tier_1_primary": [
+        "BRC",
+        "FCD"
+      ],
+      "tier_1_secondary": [
+        "VCE",
+        "SMRF",
+        "CPDR"
+      ],
+      "tier_2_eligible": [
+        "TEF",
+        "ML_ENSEMBLE"
+      ],
+      "notes": "Continuation dominates; TEF only as conditional late-cycle participation.",
+      "max_fused": 1.0,
+      "velocity_min": 0.3
+    },
+    "TRENDING_WEAK_OR_TRANSITIONAL": {
+      "tier_1_primary": [
+        "BRC"
+      ],
+      "tier_1_secondary": [
+        "STD_DISABLED",
+        "VCE",
+        "FCD"
+      ],
+      "tier_2_eligible": [
+        "TEF",
+        "ML_ENSEMBLE"
+      ],
+      "notes": "Transitional trends require caution; FCD added 2026-06-22 because signals were being tagged FCD in weak-trend regimes and hard-blocked by the eligibility matrix."
+    },
+    "RANGING_LOW_VOL": {
+      "tier_1_primary": [
+        "SMRF",
+        "CPDR"
+      ],
+      "tier_1_secondary": [
+        "MPRD",
+        "FBMR",
+        "STD"
+      ],
+      "tier_2_eligible": [
+        "VRPH",
+        "ML_ENSEMBLE"
+      ],
+      "notes": "Directional conviction low; prefer reversion and relative-value profiles. STD added 2026-05-12: session-transition drift suits low-vol ranging; was blocking XAUUSD and other STD signals with STRATEGY_REGIME_MISMATCH.",
+      "max_fused": 1.0,
+      "velocity_min": 0.1
+    },
+    "RANGING_HIGH_NOISE": {
+      "tier_1_primary": [
+        "SMRF"
+      ],
+      "tier_1_secondary": [
+        "CPDR"
+      ],
+      "tier_2_eligible": [
+        "LIA",
+        "VRPH",
+        "ML_ENSEMBLE"
+      ],
+      "notes": "Noisy sideways regime favors conservative, low-exposure deployments.",
+      "max_fused": 1.0,
+      "velocity_min": 0.2
+    },
+    "THIN_LIQUIDITY": {
+      "tier_1_primary": [
+        "MPRD"
+      ],
+      "tier_1_secondary": [],
+      "tier_2_eligible": [
+        "LIA",
+        "ML_ENSEMBLE"
+      ],
+      "notes": "Participation should be sparse; liquidity engine only if execution quality is stable."
+    },
+    "MACRO_REPRICING_OR_CRISIS": {
+      "tier_1_primary": [],
+      "tier_1_secondary": [],
+      "tier_2_eligible": [
+        "ML_ENSEMBLE"
+      ],
+      "notes": "Flat posture is valid. Allow existing risk governor to enforce minimum activity."
+    },
+    "MACRO_POST_RELEASE_DRIFT": {
+      "tier_1_primary": [],
+      "tier_1_secondary": [
+        "STD"
+      ],
+      "tier_2_eligible": [
+        "MPRD",
+        "ML_ENSEMBLE"
+      ],
+      "notes": "Tier-2 event strategy; seek delayed flow persistence, not headline reaction."
+    },
+    "FIX_WINDOW_FLOW_DISTORTION": {
+      "tier_1_primary": [],
+      "tier_1_secondary": [
+        "STD"
+      ],
+      "tier_2_eligible": [
+        "FFR",
+        "ML_ENSEMBLE"
+      ],
+      "notes": "Tier-2 flow strategy; activation only around rebalance/fix distortion windows."
+    },
+    "CROSS_ASSET_STRESS_TRANSFER": {
+      "tier_1_primary": [],
+      "tier_1_secondary": [],
+      "tier_2_eligible": [
+        "CAST",
+        "ML_ENSEMBLE"
+      ],
+      "notes": "Tier-2 macro strategy; requires coordinated cross-asset confirmation."
+    },
+    "WEEKEND_GAP_RECONCILIATION": {
+      "tier_1_primary": [],
+      "tier_1_secondary": [],
+      "tier_2_eligible": [
+        "WGR",
+        "ML_ENSEMBLE"
+      ],
+      "notes": "Tier-2 episodic strategy; low-frequency Monday/open-window participation only."
+    },
+    "FUNDING_BASIS_DISLOCATION": {
+      "tier_1_primary": [],
+      "tier_1_secondary": [],
+      "tier_2_eligible": [
+        "FBMR",
+        "ML_ENSEMBLE"
+      ],
+      "notes": "Tier-2 basis strategy; avoid participation when shifts appear structural."
+    },
+    "CORRELATION_BREAK_PERSISTENCE": {
+      "tier_1_primary": [],
+      "tier_1_secondary": [
+        "CPDR"
+      ],
+      "tier_2_eligible": [
+        "CBP",
+        "ML_ENSEMBLE"
+      ],
+      "notes": "Tier-2 persistence strategy; only valid when decoupling remains durable."
+    },
+    "GOLD_MACRO_STRESS_EXPRESSION": {
+      "tier_1_primary": [],
+      "tier_1_secondary": [],
+      "tier_2_eligible": [
+        "CAST",
+        "MPRD",
+        "ML_ENSEMBLE"
+      ],
+      "notes": "Gold-specific macro stress expression regime; conservative and rare activation intent."
+    },
+    "GOLD_VOLATILITY_NORMALIZATION": {
+      "tier_1_primary": [],
+      "tier_1_secondary": [],
+      "tier_2_eligible": [
+        "VRPH",
+        "ML_ENSEMBLE"
+      ],
+      "notes": "Gold-specific volatility normalization regime; non-participation is expected when confirmation is weak."
+    }
+  }
+}

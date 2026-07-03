@@ -1,0 +1,9 @@
+{
+  "trend_strength_breakout": 0.6,
+  "trend_strength_trending": 0.4,
+  "range_strength_ranging": 0.5,
+  "volatility_breakout": 0.6,
+  "volatility_volatile": 0.55,
+  "rsi_proxy_threshold": 15,
+  "_note": "Adjusted by regime_calibration.py. RSI threshold increased from 12 to 15 to align with live ADX>25 classification."
+}
